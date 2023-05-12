@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}Productos{% endblock %}
+
+{% block content %}
+  <h1>Productos disponibles:</h1>
+  {% if productos %}
+    <ul>
+      {% for producto in productos %}
+        <li>
+          <a href="{% url 'detalle_producto' producto.id %}">
+          </a>
+          <a href="{% url 'detalle_producto' producto.id %}">
+            <h2>{{ producto.nombre }}</h2>
+          </a>
+          <p>{{ producto.descripcion }}</p>
+          <p>Precio: ${{ producto.precio }}</p>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No hay productos disponibles en este momento.</p>
+  {% endif %}
+{% endblock %}

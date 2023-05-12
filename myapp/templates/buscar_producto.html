@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Buscar producto</h1>
+  <form action="{% url 'buscar_productos' %}" method="get">
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" name="nombre">
+    <br>
+    <label for="descripcion">Descripción:</label>
+    <input type="text" id="descripcion" name="descripcion">
+    <br>
+    <button type="submit">Buscar</button>
+  </form>
+
+  {% if productos %}
+    <h2>Resultados de la búsqueda:</h2>
+    <ul>
+      {% for producto in productos %}
+        <li>{{ producto.nombre }} - {{ producto.descripcion }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% endblock %}

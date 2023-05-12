@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %}{% endblock %} - Tienda en línea</title>
+  </head>
+  <body>
+    <header>
+      <h1>Tienda en línea</h1>
+      <nav>
+        <ul>
+          <li><a href="{% url 'lista_productos' %}">Productos</a></li>
+          <li>
+            <form action="{% url 'buscar_productos' %}" method="GET">
+              <input type="text" name="q" placeholder="Buscar productos...">
+              <button type="submit">Buscar</button>
+            </form>
+          </li>
+          <li><a href="{% url 'crear_producto' %}" class="btn btn-primary">Agregar producto</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      {% block content %}{% endblock %}
+    </main>
+    <footer>
+      <p>&copy; 2023 Tienda en línea</p>
+    </footer>
+  </body>
+</html>
